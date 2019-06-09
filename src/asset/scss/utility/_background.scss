@@ -1,0 +1,22 @@
+.bg-grad{background-image:$grad-linear;}
+.bg-grad-180{background-image:$grad-linear-180;}
+.bg-grey{background-color:$grey-10;}
+
+@each $bg, $value in $bgimages {
+    .u-bg-img-#{$bg} {
+      background-image: #{$value};
+      position:fixed;
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: cover;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      //filter: blur(8px);
+     // -webkit-filter: blur(8px);
+    }
+  }
+  
+  

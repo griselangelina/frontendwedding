@@ -1,0 +1,17 @@
+.countdown{
+    margin-bottom: 0;
+    font-size: 80px;
+    color: #fff;
+    span{
+        margin: 0 30px;
+        display: inline-block;
+        font-family: "Montez", cursive;
+    }
+    small{
+        display: block;
+        font-size: 16px;
+        font-family: "Open Sans", Arial, sans-serif;
+        margin:30px 0;
+    }
+}
+

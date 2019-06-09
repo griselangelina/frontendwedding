@@ -1,0 +1,245 @@
+//
+// Color system
+//
+
+// pink/Primary Color
+$pink-10 : #f9a1a9; // Base
+$pink-20:#f3a3aa;
+$pink-30 :#e37e87;
+
+// purple/Secondary Color
+$purple-10: #e077ae;// Base
+$purple-20:#c73782;
+$purple-30:#cd6fa0;
+
+//grey/secondary
+$grey-10 : #eaeaea;
+$grey-20 : #aca7a7;
+
+
+// Black
+$black-10 : #636b6f;
+$black-20 : #EFF3F6;
+$black-30 : #DCDEE3;
+$black-40 : #9C9DA6;
+$black-50 : #70727D;
+$black-60 : #434755;
+$black-70 : #636b6f;
+
+$red-10:  #fb1616;
+
+$white : #f4f4f4;
+$primary : $pink-10;
+$secondary : $purple-10;
+$grey : $grey-10 ;
+$success : $pink-10;   //should be ganti
+$danger : $red-10; //should be ganti
+$warning : $purple-10; //should be ganti
+$info : $black-50;
+$light : $black-30;
+$dark : $black-70;
+
+$colors: (
+  ("primary", $pink-10),
+  ("primary-30", $pink-30),
+  ("secondary-green", $purple-10),
+  ("secondary-grey",  $grey-10),
+  ("success", $pink-10),
+  ("danger",$danger),
+  ("warning", $warning),
+  ("info", $black-50),
+  ("light", $black-30),
+  ("dark", $black-70),
+  ("white", $white)
+);
+
+//
+// Spacing
+//
+
+$padding-0 : 0px;
+$padding-1 : 4px;
+$padding-2 : 8px;
+$padding-3 : 12px;
+$padding-4 : 16px;
+$padding-5 : 20px;
+$padding-6 : 24px;
+$padding-7 : 28px;
+$padding-8 : 32px;
+$padding-9 : 36px;
+$padding-10 : 40px;
+$padding-11 : 44px;
+$padding-12 : 48px;
+
+$paddings: (
+  ("0", $padding-0),
+  ("1", $padding-1),
+  ("2", $padding-2),
+  ("3", $padding-3),
+  ("4", $padding-4),
+  ("5", $padding-5),
+  ("6", $padding-6),
+  ("7", $padding-7),
+  ("8", $padding-8),
+  ("9", $padding-9),
+  ("10", $padding-10),
+  ("11", $padding-11),
+  ("12", $padding-12),
+);
+
+$margin-0 : 0px;
+$margin-1 : 4px;
+$margin-2 : 8px;
+$margin-3 : 12px;
+$margin-4 : 16px;
+$margin-5 : 20px;
+$margin-6 : 24px;
+$margin-7 : 28px;
+$margin-8 : 32px;
+$margin-9 : 36px;
+$margin-10 : 40px;
+$margin-11 : 44px;
+$margin-12 : 48px;
+
+$margins: (
+  ("0", $margin-0),
+  ("1", $margin-1),
+  ("2", $margin-2),
+  ("3", $margin-3),
+  ("4", $margin-4),
+  ("5", $margin-5),
+  ("6", $margin-6),
+  ("7", $margin-7),
+  ("8", $margin-8),
+  ("9", $margin-9),
+  ("10", $margin-10),
+  ("11", $margin-11),
+  ("12", $margin-12),
+);
+
+// Body
+//
+// Settings for the `<body>` element.
+// shadow
+$shadow-default: 0 1px 4px 0 rgba(112, 114, 125, 0.2);
+$shadow-default-action: 0 1px 4px 0 rgba(112, 114, 125, 0.4);
+$shadow-hover: 0 2px 8px 0 rgba(112, 114, 125, 0.4);
+$shadow-disabled: 0 1px 3px 0 rgba(112, 114, 125, 0.2);
+
+$link-decoration:           none !default;
+$link-hover-decoration:     underline !default;
+
+$line-height-lg:              1.5 !default;
+$line-height-sm:              1.5 !default;
+
+$border-width:                1px !default;
+$border-color:                $black-40 !default;
+$border-radius:               4px !default;
+
+$transition-base:             all .2s ease-in-out !default;
+$transition-fade:             opacity .15s linear !default;
+$transition-collapse:         height .35s ease !default;
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,900');
+@import url('https://fonts.googleapis.com/css?family=Nunito|Poppins|Roboto:200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico:200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montez:200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cinzel:200,300,400,500,600,700&display=swap');
+
+$font-family-rubik:           'Rubik', sans-serif;
+$font-family-pacifico:        'Pacifico', cursive;
+$font-family-montez:        'Montez', cursive;
+$font-family-roboto:         'Roboto', sans-serif;
+$font-family-nunito: 'Nunito', sans-serif;
+$font-family-cinzel: 'Cinzel', serif;
+$font-family-poppins: 'Poppins', sans-serif;
+
+$font-family-base:            $font-family-nunito !default;
+
+
+// stylelint-enable value-keyword-case
+
+// font size
+$font-size-base:           16px !default;
+$font-size-d1:             42px !default; // 42px
+$font-size-d2:             28px !default; // 28px
+$font-size-d3:             24px !default; // 24px
+$font-size-d4:             20px !default; // 20px
+$font-size-h1:             3.5rem !default; // 16px
+$font-size-h2:             2.5rem !default; // 14px
+$font-size-h3:             1.5rem !default; // 12px
+$font-size-h4:             0.5rem !default; // 10px
+$font-size-b1:             14px !default; // 14px
+$font-size-b2:             12px !default; // 12px
+$font-size-b3:             10px !default; // 10px
+$font-size-b4:             10px !default; // 10px
+$font-size-p1:             14px !default; // 14px
+$font-size-p2:             12px !default; // 12px
+
+// font height
+$font-height-d1:           ($font-size-d1 + 2) !default;
+$font-height-d2:           ($font-size-d2 + 2) !default;
+$font-height-d3:           ($font-size-d3 + 2) !default;
+$font-height-d4:           ($font-size-d4 + 2) !default;
+$font-height-h1:           ($font-size-h1 + 2) !default;
+$font-height-h2:           ($font-size-h2 + 2) !default;
+$font-height-h3:           ($font-size-h3 + 2) !default;
+$font-height-h4:           ($font-size-h4 + 2) !default;
+$font-height-b2:           ($font-size-b2 + 2) !default;
+$font-height-b3:           ($font-size-b3 + 2) !default;
+$font-height-b4:           ($font-size-b4 + 2) !default;
+$font-height-p1:           1.5 !default;
+$font-height-p2:           1.5 !default;
+
+// font weight
+$font-weight-slight:          200 !default;
+$font-weight-light:           300 !default;
+$font-weight-regular:         400 !default;
+$font-weight-medium:          500 !default;
+$font-weight-bold:            600 !default;
+$font-weight-sbold:           700 !default;
+
+$font-weight-base:          $font-weight-slight !default;
+$line-height-base:          ($font-size-base + 10) !default; // 20px
+
+$font-color-error:            $red-10!default;
+$font-color-succes:           $red-10 !default;
+$font-color-warning:          $red-10 !default;
+
+// Z-index master list
+$zindex-dropdown:                   1000 !default;
+$zindex-sticky:                     1020 !default;
+$zindex-fixed:                      1030 !default;
+$zindex-modal-backdrop:             1040 !default;
+$zindex-modal:                      1050 !default;
+$zindex-popover:                    1060 !default;
+$zindex-tooltip:                    1070 !default;
+
+//	width
+$w-100: 100%;
+$w-80:80%;
+$w-60: 60%;
+$w-40:40%;
+$w-20:20%;
+
+$grad-linear: linear-gradient(to right,$pink-10, $purple-10);
+$grad-radial: radial-gradient(to right,$pink-10, $purple-10);
+$grad-linear-180:linear-gradient(180deg,#ffffff 0%,#eaeaea 100%)!important;
+
+// Background image
+$bg1:url("img/background1.jpg");
+$bg2:url('/img/background2.jpg');
+$bg17:url("img/pink.jpg");
+
+
+$bgimages: (
+  ("bg1", $bg1),
+  ("bg2", $bg2),
+  ("bg17", $bg17)
+);

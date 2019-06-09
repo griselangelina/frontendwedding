@@ -1,0 +1,20 @@
+.address-map{
+    height: 100px;
+    width: 100%;
+}
+.registerbyphone, .registerbysosmed, .registerdone {
+  .u-ps-absolute {
+    bottom: 32px;
+  }
+}
+// .registerdone {
+//   h1:nth-child(1) {
+//     padding-bottom: 94px;
+//   }
+// }
+
+.registerbyphone , .registerbysosmed, .registerdone {
+  .u-hg-vh {
+    height: calc(100vh - 44px)!important;
+  }
+}

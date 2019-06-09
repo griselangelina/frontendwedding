@@ -1,0 +1,138 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ 
+ p {
+   line-height: 2rem;
+ }
+ 
+ .sidenav-trigger {
+   color: #26a69a;
+ }
+
+ @media only screen and (max-width : 992px) {
+   .parallax-container .section {
+     position: absolute;
+     top: 40%;
+   }
+   #index-banner .section {
+     top: 10%;
+   }
+ }
+ 
+ @media only screen and (max-width : 600px) {
+   #index-banner .section {
+     top: 0;
+   }
+ }
+ .section{
+   padding-bottom:70px;
+ }
+
+ nav{
+  border-bottom: 1px solid #d8d8d8;
+  box-shadow:none;
+ }
+ .icon-block {
+   padding: 0 15px;
+ }
+ .icon-block .material-icons {
+   font-size: inherit;
+ }
+ 
+
+.header-text {
+    padding: 20px;
+}
+
+ footer.page-footer {
+   margin: 0;
+ }
+.white-color{
+  color:white;
+}
+.bg-grey{
+  background-color:#eaeaea;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: red;
+}
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid red;
+  -webkit-box-shadow: 0 1px 0 0 red;
+          box-shadow: 0 1px 0 0 red;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: red;
+}
+.input-field > label:not(.label-icon).active {
+  -webkit-transform: translateY(-14px) scale(0.8);
+          transform: translateY(-14px) scale(0.8);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+/*no need*/
+.u-border-bt{
+   border-bottom:0.5px solid black;
+ }
+.u-border-top{
+  border-top:0.5px solid black;
+}
+.u-border-right{
+  border-right:0.5px solid black;
+}
+.u-border-left{
+  border-left:0.5px solid black;
+}
+
+.u-margin-top{
+  margin-top: 30px;
+}
+
+.u-margin-bottom{
+  margin-bottom: 30px;
+}
+
+.u-padding-top{
+  padding-top: 30px;
+}
+
+.u-padding-bottom{
+  padding-bottom: 30px;
+}
+
+.u-wid-100{
+  width:100%;
+}

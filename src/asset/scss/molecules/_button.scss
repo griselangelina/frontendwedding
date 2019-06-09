@@ -1,0 +1,14 @@
+.btn,.btn-large,.btn-small{
+	background-color: $primary;
+	&:hover{
+		background-color: $pink-30;
+		color:$white;
+	}
+}
+
+
+@each $bg, $value in $colors{
+    .btn-#{$bg} {
+	  background-color: #{$value};
+    }
+  }

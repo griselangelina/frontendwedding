@@ -1,0 +1,33 @@
+ .parallax-container {
+   line-height: 0;
+   height: auto;
+   color: rgba(255,255,255,.9);
+   //background-image: url('./asset/img/bg1.png');
+   background-size: $w-60;
+   background-repeat: no-repeat;
+   background-position: top right;
+   
+   .section{
+   width: 100%;
+   }
+ }
+ 
+ .header{
+	font-family:$font-family-pacifico;
+	font-weight:$font-weight-slight;
+	&-2{
+	font-family:$font-family-poppins;
+	line-height:$line-height-base;
+	}
+ }
+ 
+ @media only screen and (max-width : 992px) {
+   .parallax-container .section {
+     position: absolute;
+     top: 40%;
+   }
+   #index-banner .section {
+     top: 10%;
+   }
+ }
+ 
