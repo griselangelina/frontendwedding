@@ -22,11 +22,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "aws s3 sync build/ s3://frontreact",
+    "deploy": "aws s3 sync build/ s3://www.turizter.com",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://18.136.209.208:8080",
+  "proxy":"http://172.31.23.179:8080",
   "eslintConfig": {
     "extends": "react-app"
   },

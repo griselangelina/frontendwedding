@@ -215,7 +215,7 @@ class index extends Component {
             }
 			
 			if(this.state.btnStatus==="save"){
-				axios.post('/api/bridegroom/save',formSubmit).then( 
+				axios.post('http://172.31.23.179:8080/api/bridegroom/save',formSubmit).then( 
 						(response) => { 
 							//return <Redirect to={"/confirm/" + response.data.brideGroomCd} /> //nanti ganti with /confirm/kodecd
 							this.props.history.push("/confirm/" + response.data.brideGroomCd)
@@ -223,7 +223,7 @@ class index extends Component {
 					);
 			}else{
 				formSubmit={...formSubmit,"brideGroomCd":values.done}
-				axios.put('/api/bridegroom/update',formSubmit).then( 
+				axios.put('http://172.31.23.179:8080/api/bridegroom/update',formSubmit).then( 
 					(response) => { 
 						//return <Redirect to={"/confirm/" + response.data.brideGroomCd} /> //nanti ganti with /confirm/kodecd
 						//console.log("put",response)

@@ -10,7 +10,7 @@ class index extends Component {
     template: []
   }
   componentDidMount(){
-    axios.get(`/api/get-template`)
+    axios.get(`http://172.31.23.179:8080/api/get-template`)
     .then(res => {
       console.log("res",res.data)
     })

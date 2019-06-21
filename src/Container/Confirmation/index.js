@@ -16,7 +16,7 @@ class index extends Component {
 		const { dispatch } = this.props;
         let bridegroomcd=this.props.match.params.bridegroomcd
 		console.log("param",this.props.match.params.bridegroomcd)
-		axios.get(`/api/bridegroom/${bridegroomcd}`).then( 
+		axios.get(`http://172.31.23.179:8080/api/bridegroom/${bridegroomcd}`).then( 
             (response) => {
 				dispatch(confirmAction.saveData(response.data)) 
             },
