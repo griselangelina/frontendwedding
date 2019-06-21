@@ -52,7 +52,7 @@ class index extends Component {
 		const { dispatch } = this.props;
         let bridegroomcd=this.props.match.params.name
 		console.log("param",this.props.match.params.bridegroomcd)
-		axios.get(`http://172.31.23.179:8080/api/bridegroom/${bridegroomcd}`).then( 
+		axios.get(`/api/bridegroom/${bridegroomcd}`).then( 
             (response) => {
                 //dispatch(confirmAction.saveData(response.data)) 
                 this.setState({data:response.data})
@@ -66,7 +66,7 @@ class index extends Component {
             "message":"yes attend",
             "brideGroomCd":this.state.data.brideGroomCd
         }
-        axios.post('http://172.31.23.179:8080/api/send',formSubmit).then( 
+        axios.post('/api/send',formSubmit).then( 
             (response) => {
                 //dispatch(confirmAction.saveData(response.data)) 
                // this.props.history.push("/undangkamu/" + this.state.data.name)

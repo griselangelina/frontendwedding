@@ -13,7 +13,7 @@ class BasicInfo extends Component {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
           };
-        axios.get(`http://54.169.246.34:8080/api/getInfo`,{headers}).then( 
+        axios.get(`/api/getInfo`,{headers}).then( 
             (response) => { 
                 //response.data===0 ?dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'}):alert
                 console.log("resp",response)
