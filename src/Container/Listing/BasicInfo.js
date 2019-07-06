@@ -9,14 +9,10 @@ class BasicInfo extends Component {
     saveAndContinue = (value) => {
         //check email sudah terpakai atau belum
         const {dispatch}=this.props;
-        const headers = {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          };
-        axios.get(`/api/getInfo`,{headers}).then( 
+        axios.get(`/api/bridegroom/email/${value}`).then( 
             (response) => { 
-                //response.data===0 ?dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'}):alert
-                console.log("resp",response)
+                response.data === 0 ? dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'}) : alert
+                //console.log("resp",response)
             },
         );
        // e.preventDefault()
