@@ -1,12 +1,11 @@
  .parallax-container {
    line-height: 0;
-   height: auto;
    color: rgba(255,255,255,.9);
    //background-image: url('./asset/img/bg1.png');
    background-size: $w-60;
    background-repeat: no-repeat;
    background-position: top right;
-   
+   height: 100%;
    .section{
    width: 100%;
    }
@@ -14,10 +13,12 @@
  
  .header{
 	font-family:$font-family-pacifico;
-	font-weight:$font-weight-slight;
+  font-weight:$font-weight-slight;
+  
 	&-2{
 	font-family:$font-family-poppins;
-	line-height:$line-height-base;
+  line-height:$line-height-base;
+  font-size: 18px;
 	}
  }
  

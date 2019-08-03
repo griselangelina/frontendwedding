@@ -18,10 +18,28 @@
 	-webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	-moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	-o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	.icon-title{
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		color:white;
+
+		.icon-div{
+			width: 75px;
+			height: 75px;
+			background-color: $pink-30;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+	 }
+	}
+	
  }
 
  .icon-block .material-icons {
-   font-size: inherit;
+	 font-size: inherit;
  }
+ 
  

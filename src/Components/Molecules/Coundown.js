@@ -77,13 +77,14 @@ class Countdown extends Component {
 
     render() {
         const countDown = this.state;
+        const {template} = this.props;
 
         return (
-            <div class="countdown">
-                <span id="days">{this.addLeadingZeros(countDown.days)}<small>days</small></span>
-                <span id="hours">{this.addLeadingZeros(countDown.hours)} <small>hours</small> </span>
-                <span id="minutes">{this.addLeadingZeros(countDown.min)} <small>minutes</small> </span>
-                <span id="seconds">{this.addLeadingZeros(countDown.sec)} <small>seconds</small> </span>
+            <div class={template==='17' ? "countdown-type1" : "countdown-type2"}>
+                <span id="days" class="s6 m3">{this.addLeadingZeros(countDown.days)}<small>days</small></span>
+                <span id="hours" class=" s6 m3">{this.addLeadingZeros(countDown.hours)} <small>hours</small> </span>
+                <span id="minutes" class=" s6 m3">{this.addLeadingZeros(countDown.min)} <small>minutes</small> </span>
+                <span id="seconds" class="s6 m3">{this.addLeadingZeros(countDown.sec)} <small>seconds</small> </span>
             </div>
         );
     }

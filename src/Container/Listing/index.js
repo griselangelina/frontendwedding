@@ -12,6 +12,7 @@ import NextInfo from './NextInfo';
 import axios from 'axios';
 import * as Validator from '../../helper/Validator';
 import queryString from 'query-string';
+
 class index extends Component {
 
         state = {
@@ -64,23 +65,23 @@ class index extends Component {
 					errorMessage: '',
 					label: 'phone'
 				},
-                weddingDate: {
+                whenDate: {
 					value: '',
 					validation: {
 						required: true,
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'weddingDate'
+					label: 'whenDate'
 				},
-                weddingTime: {
+                whenTime: {
 					value: '',
 					validation: {
 						required: true,
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'weddingTime'
+					label: 'whenTime'
 				},
                 loc1: {
 					value: '',
@@ -117,32 +118,43 @@ class index extends Component {
 						label: 'templateId'
 					}
 				},
-				files:{
+				headerPicture:{
 					value: '',
 					validation: {
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'files'
+					label: 'headerPicture'
 				}
 			},
-		btnStatus:"save"
+		btnStatus:"save",
+		loader:false
         }
     
         componentDidMount(){
-            const values = queryString.parse(this.props.location.search)
-            console.log("values",values.done)
-            let form = Object.assign({}, this.state.form);
+			const { dispatch } = this.props;
+
+
+			const values = queryString.parse(this.props.location.search)
+			
+			console.log("valuesssdas",values.done)
+			let form = Object.assign({}, this.state.form);
             if(values.done ){
-                let statusCopy = Object.entries(this.props.bridegroom);
-                for(const [x,t]  of statusCopy){
-				  // form[x].value=t
-				  if(form[x]){
-					form[x].value=t
-				  }
-                }
-                this.setState({ ...this.state,form: form}, console.log("formmmmmmmm ",this.state.form));
-				this.setState({btnStatus:"edit"})
+				//dont use bridegroom props but use axios to get data first using reducer 
+				axios.get(`/api/bridegroom/${values.done}`).then( 
+					(response) => {
+						let statusCopy = Object.entries(response.data);
+						console.log("statusCopy",statusCopy)
+						for(const [x,t]  of statusCopy){
+						  // form[x].value=t
+						  if(form[x]){
+							form[x].value=t
+						  }
+						}
+						this.setState({ ...this.state,form: form}, console.log("formmmmmmmm ",this.state.form));
+						this.setState({btnStatus:"edit"})
+					},
+				);
             }
         }
     nextStep = () => {
@@ -180,27 +192,29 @@ class index extends Component {
         let reader = new FileReader()
         reader.readAsDataURL(files)
         reader.onload = () => {
-          form['files'].value=reader.result
+          form['headerPicture'].value=reader.result
           this.setState({...this.state,
             form:form
-          },() => { console.log("file",this.state.form) })
+          },() => { console.log("headerPicture",this.state.form) })
         };
         
 
 	  }
 
     submit = () => {
-        const { name, brideName, groomName, phone, email, weddingDate,weddingTime,loc1,ourStory1,ourStory2,templateId,files } = this.state.form;
+		const { form }=this.state;
+        const { name, brideName, groomName, phone, email, whenDate,whenTime,loc1,ourStory1,ourStory2,templateId,headerPicture } = form;
 		//const {validation,value,label}=urlName
 		const values = queryString.parse(this.props.location.search)
 
+		this.setState({loader:true})
 		 let reValidate = Object.entries(this.state.form).map(([p,q]) => {
              return this.checkValidation(p, q.value)
              
 		 })
 		 if(reValidate.indexOf('false')== -1){
 			let formSubmit={
-				"templateId": 17,
+				"templateId":templateId.value,
 				"phone":phone.value,
 				"email":email.value,
 				"name": name.value,
@@ -208,10 +222,10 @@ class index extends Component {
 				"groomName": groomName.value,
 				"ourStory1": ourStory1.value,
 				"ourStory2": ourStory2.value,
-				"whenTime": weddingTime.value,
-				"whenDate": weddingDate.value,
+				"whenTime": whenTime.value,
+				"whenDate": whenDate.value,
                 "loc1": loc1.value,
-                "headerPicture":files.value
+                "headerPicture":headerPicture.value
             }
 			
 			if(this.state.btnStatus==="save"){
@@ -219,6 +233,7 @@ class index extends Component {
 						(response) => { 
 							//return <Redirect to={"/confirm/" + response.data.brideGroomCd} /> //nanti ganti with /confirm/kodecd
 							this.props.history.push("/confirm/" + response.data.brideGroomCd)
+							this.setState({loader:false})
 						},
 					);
 			}else{
@@ -234,7 +249,7 @@ class index extends Component {
 		 }else{
 			 alert("masih ada error")
 		 }
-		
+
         
     }
       // Handle fields change
@@ -244,15 +259,25 @@ class index extends Component {
         this.setState({ ...this.state,form: statusCopy});
     };
 
+	handleChangeTemplate = (input) =>{
+        let statusCopy = Object.assign({}, this.state.form);
+        statusCopy['templateId'].value = input;
+        this.setState({ ...this.state,form: statusCopy});
+    };
+	
     render() {
-        const { name, brideName, groomName, phone, email, weddingDate,weddingTime,loc1,ourStory2,ourStory1,templateId } = this.state.form;
-        const values = { name, brideName, groomName, phone, email, weddingDate,weddingTime,loc1,ourStory2,ourStory1,templateId };
+		const {btnStatus}=this.state;
+        const { name, brideName, groomName, phone, email, whenDate,whenTime,loc1,ourStory2,ourStory1,templateId,headerPicture } = this.state.form;
+        const values = { name, brideName, groomName, phone, email, whenDate,whenTime,loc1,ourStory2,ourStory1,templateId,headerPicture };
+
+		console.log("this.state.form",this.state.form)
 
             switch(this.props.step) {
                 case "TEMPLATE_LIST":
                     return <TemplateList 
                     nextStep={this.nextStep}
-                    prevStep={this.prevStep}
+					prevStep={this.prevStep}
+					handleChangeTemplate={this.handleChangeTemplate}
                  />
                  
                 case "BASIC_INFO":
@@ -260,15 +285,16 @@ class index extends Component {
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange={this.handleChange}
-                    values={values}
+					values={values}
+					btnStatus={btnStatus}
                  />
 
                 case "MESSAGE_INFO_NEXT":
-                return <MessageInfo 
-                nextStep={this.nextStep}
-                prevStep={this.prevStep}
-                handleChange={this.handleChange}
-                values={values}
+					return <MessageInfo 
+					nextStep={this.nextStep}
+					prevStep={this.prevStep}
+					handleChange={this.handleChange}
+					values={values}
                  />
 
                  case "BASIC_INFO_NEXT":
@@ -279,6 +305,7 @@ class index extends Component {
                     values={values}
 					submit={this.submit}
 					handleFileChosen={this.handleFileChosen}
+					loader={this.state.loader}
                 />
                 }
         

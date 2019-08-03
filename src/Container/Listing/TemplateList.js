@@ -8,8 +8,9 @@ class TemplateList extends Component {
         template:[]
     }
     saveAndContinue = (e) => {
-        const {dispatch}=this.props;
-        e.preventDefault()
+        const {dispatch,handleChangeTemplate}=this.props;
+       //e.preventDefault()
+       handleChangeTemplate(e)
         dispatch({type:'COMPOSE_NEXT',step:'BASIC_INFO'})
     }
 
@@ -27,14 +28,12 @@ class TemplateList extends Component {
                 <Navigation />
                
                 <div class="section" >
-                <div class="container">
-                <p>
-                    <h4>Find Your Design</h4>
-                Select one of our 100+ new designs to start your wedding website. Try it out – you can change it at any time.
-
-
-                </p>
-                </div>
+                    <div class="container">
+                        <p>
+                            <h2>Pilih Desain</h2>
+                            Buat website-mu dengan desain-desain template berikut.
+                        </p>
+                    </div>
                 </div>
                
 
@@ -45,41 +44,21 @@ class TemplateList extends Component {
                   
                   <div class="row" >
 
-                    <div class="col s12 m4 u-margin-top">
-                        <div class="icon-block">
-                        <a onClick={this.saveAndContinue} href="#">
-                            <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                        </a>
+                    {
+                        this.state.template.map((val) => 
+                        
+                        <div class="col s12 m6 u-margin-top">
+                            <div class="icon-block">
+                                <a onClick={()=>this.saveAndContinue(val.id)} href="#">
+                                    <img src={"http://localhost:3000/template/"+val.id+".png"} style={{width:`100%`}} />
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col s12 m4 u-margin-top">
-                        <div class="icon-block">
-                            <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                        </div>
-                    </div>
-                    <div class="col s12 m4 u-margin-top">
-                        <div class="icon-block">
-                            <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                        </div>
-                    </div>
+                        )
+                    }
+                    
 
 
-
-                    <div class="col s12 m4 u-margin-top">
-                        <div class="icon-block">
-                            <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                        </div>
-                    </div>
-                    <div class="col s12 m4 u-margin-top">
-                        <div class="icon-block">
-                            <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                        </div>
-                    </div>
-                    <div class="col s12 m4 u-margin-top">
-                        <div class="icon-block">
-                            <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                        </div>
-                    </div>
                   </div>
 
                 </div>

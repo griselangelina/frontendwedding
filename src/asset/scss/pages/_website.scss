@@ -3,17 +3,11 @@ nav{
     z-index:2;
 }
 .section{
-    padding-top:80px;
-    padding-bottom:80px;
+    padding-top:50px;
+    padding-bottom:50px;
 }
-.theme-header-bg1{
-    color:  $white;
-    font-weight: bold;
-    z-index: 2;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-}
+
+/* theme header part */
 .theme-header-bg17{
     color: $grey-20;
     font-weight: bold;
@@ -21,22 +15,30 @@ nav{
     width: 100%;
     padding: 20px;
     text-align: center;
+    span{
+        border-top: 2px solid $grey-20;
+        border-bottom: 2px solid $grey-20;
+        padding: 5px 0px;
+        letter-spacing: 7px;
+    }
 }
-.theme-header-bg17 span{
-    border-top: 2px solid $grey-20;
-    border-bottom: 2px solid $grey-20;
-    padding: 5px 0px;
-    letter-spacing: 7px;
-}
-
-.title-header-bg1{
-    color:  $white;
+.theme-header-bg18{
+    color: $grey-30;
     font-weight: bold;
     z-index: 2;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    letter-spacing: 3px;
+    span{
+        border-top: 2px solid $grey-20;
+        border-bottom: 2px solid $grey-20;
+        padding: 5px 0px;
+        letter-spacing: 7px;
+    }
 }
+
+/* title header part */
 .title-header-bg17{
     color: $grey-20;
     font-weight: bold;
@@ -48,6 +50,20 @@ nav{
     font-size:$font-height-h3;
     line-height:$line-height-lg;
 }
+.title-header-bg18{
+    color: $grey-30;
+    font-weight: bold;
+    z-index: 2;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    font-family:$font-family-serif;
+    font-weight:$font-weight-slight;
+    font-size:$font-height-h4;
+    letter-spacing: 3px;
+}
+
+/* section heading part */
 .section-heading-bg17{
     color: $pink-30;
     font-weight: bold;
@@ -60,15 +76,58 @@ nav{
     line-height:$line-height-lg;
 
 }
+
+/* theme couple part */
 .theme-couple-bg17{
     font-family:$font-family-cinzel;
     font-size:25px;
 }
 
-.theme-body{
-    width: 70%;
+/* quote-section */
+.quote-section-bg18{
+
+}
+.detail-section-bg18{
+    width: 350px;
+    height: 350px;
     margin: 0 auto;
-    padding: 7em 0;
+    margin-bottom:50px;
+
+    .detail-bg{
+        background-image: url('img/frame.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        width:100%;
+        height:100%;
+
+        .detail-word{
+            font-family:$font-family-cinzel;
+            font-size:18px;
+            padding-top: 133px;
+        }
+    }
+   
+}
+
+.countdown-section-bg18{
+    .couple-name{
+        font-family:$font-family-montez;
+        font-weight:$font-weight-slight;
+        font-size:$font-height-h3;
+        margin-top:5rem;
+        margin-bottom:5rem;
+    }
+    .wording-quotes{
+        font-family:$font-family-cinzel;
+        font-size:2rem;
+        margin-bottom:3rem;
+    }
+}
+
+.theme-body{
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
     padding-bottom: 1em;
     margin-bottom: 3em;

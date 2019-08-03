@@ -20,44 +20,43 @@ class MessageInfo extends Component {
 
         return (
             <div>
-            <div class="section">
+            <div class="">
                  <div class="container">
                  <i class="small material-icons"onClick={this.back}>arrow_back</i>
 
                  <p>
-                    <h4>Create Invitation</h4>
-                Select one of our 100+ new designs to start your wedding website. Try it out – you can change it at any time.
-
+                    <h3>Step - 2</h3>
+                    Isikan data yang diperlukan di bawah ini.
 
                 </p>
                     <div class="row">
                     </div>
                     <div class="row" >
-                        <div class="col s12 m7 ">
+                        <div class="col s12 m5 ">
                             <div class="icon-block">
-                                <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
+                            <img src={"http://localhost:3000/template/"+values.templateId.value+".png"} style={{width:`100%`}} />
                             </div>
                         </div>
-                        <div class="col s12 m5 bg-color">
-                        <div class="input-field col s12">
+                        <div class="col s12 m7 bg-color">
+                            <div class="input-field col s12">
                                 <input id="bride_name" type="text" class="validate" value={values.brideName.value} onChange={handleChange('brideName')}/>
-                                <label for="bride_name">Bride Name *</label>
+                                <label for="bride_name" class={values.brideName.value ? 'active':''}>Bride Name *</label>
                             </div>
                             <div class="input-field col s12">
                                 <input id="groom_name" type="text" class="validate"  value={values.groomName.value} onChange={handleChange('groomName')}/>
-                                <label for="groom_name">Groom Name *</label>
+                                <label for="groom_name" class={values.groomName.value ? 'active':''}>Groom Name *</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <input id="when" type="date" class="validate"  value={values.weddingDate.value} onChange={handleChange('weddingDate')}/>
-                                <label for="when">Wedding Date *</label>
+                                <input id="when" type="date" class="validate"  value={values.whenDate.value} onChange={handleChange('whenDate')}/>
+                                <label for="when" class={values.whenDate.value ? 'active':''}>Wedding Date *</label>
                             </div>
                             <div class="input-field col s12 m6">
-                                <input id="when" type="time" class="validate"  value={values.weddingTime.value} onChange={handleChange('weddingTime')}/>
-                                <label for="when">Wedding Time *</label>
+                                <input id="when" type="time" class="validate"  value={values.whenTime.value} onChange={handleChange('whenTime')}/>
+                                <label for="when" class={values.whenTime.value ? 'active':''}>Wedding Time *</label>
                             </div>
                             <div class="input-field col s12">
                                 <input id="where" type="text" class="validate" value={values.loc1.value} onChange={handleChange('loc1')}/>
-                                <label for="where">Wedding Venue *</label>
+                                <label for="where" class={values.loc1.value ? 'active':''}>Wedding Venue *</label>
                             </div>
                             <a class="waves-effect main-color btn u-wid-100" onClick={this.saveAndContinue}>continue</a>
                         </div>

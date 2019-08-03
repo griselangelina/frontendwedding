@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Title from '../../Atom/Title';
+import templatefree from '../../../asset/img/templatefree.png';
+import template2 from '../../../asset/img/template2.png';
+
 class ListingProduct extends Component {
 
     componentDidMount() {
@@ -18,34 +21,41 @@ class ListingProduct extends Component {
                     </Title>
                     <div class="row">
                         <div class="col s12 m4 u-margin-top center">
-                            <a class="#">
-                                <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                            </a>
+                            <div style={{maxHeight:`300px`,overflow:`scroll`}}>
+                                <a class="#" >
+                                    <img src={templatefree} style={{width:`100%`}} />
+                                </a>
+                            </div>
+                            
                             <p>Free template</p>
-                            <div class="center u-mt-36">
+                            {/* <div class="center u-mt-36">
                                  <a id="download-button" class="btn" href="/create">Preview</a>
 
-                            </div>
+                            </div> */}
                         </div>
                         <div class="col s12 m4 u-margin-top center">
-                            <a class="#">
-                                <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                            </a>
+                            <div style={{maxHeight:`300px`,overflow:`scroll`}}>
+                                <a class="#">
+                                    <img src={template2} style={{width:`100%`}} />
+                                </a>
+                            </div>
                             <p>Custom template 1</p>
-                            <div class="center u-mt-36">
+                            {/* <div class="center u-mt-36">
                                  <a id="download-button" class="btn" href="/create">Preview</a>
 
-                            </div>
+                            </div> */}
                         </div>
                         <div class="col s12 m4 u-margin-top center">
-                            <a hrf="#">
-                                <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
-                            </a>
+                            <div style={{maxHeight:`300px`,overflow:`scroll`}}>
+                                <a hrf="#">
+                                    <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
+                                </a>
+                            </div>
                             <p>Custom template 2</p>
-                            <div class="center u-mt-36">
+                            {/* <div class="center u-mt-36">
                                  <a id="download-button" class="btn" href="/create">Preview</a>
 
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
@@ -89,7 +99,7 @@ class ListingProduct extends Component {
                         <p class="center">Tema Website terbatas</p>
                         <h6 class="center u-fw-bold u-pt-36">Harga 150.000</h6>
                         <div class="center u-mt-36">
-                        <a id="download-button" class="btn" href="/create">Create Here</a>
+                        <a id="download-button" class="btn" href="https://api.whatsapp.com/send?phone=087887081010&text=Halo%20Admin%20Saya%20Mau%20Tanya%20Undangan%20Digital">Contact Us</a>
 
                         </div>
                       </div>
@@ -106,7 +116,7 @@ class ListingProduct extends Component {
                         <p class="center">Tema Website Bebas Request</p>
                         <h6 class="center u-fw-bold u-pt-36 ">Harga Hubungi Kami</h6>
                         <div class="center u-mt-36">
-                        <a id="download-button" class="btn" href="/create">Create Here</a>
+                        <a id="download-button" class="btn" href="https://api.whatsapp.com/send?phone=087887081010&text=Halo%20Admin%20Saya%20Mau%20Tanya%20Undangan%20Digital">Contact Us</a>
 
                         </div>
                       </div>

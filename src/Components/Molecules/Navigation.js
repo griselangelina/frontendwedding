@@ -3,6 +3,10 @@ import { ScrollTo } from "react-scroll-to";
 
 class Navigation extends Component {
 
+    state ={
+        drawerOpen : 'translateX(-100%)'
+    }
+
     componentDidMount() {
     }
 
@@ -16,38 +20,37 @@ class Navigation extends Component {
                 <ul class="right hide-on-med-and-down">
     <ScrollTo>
         {({ scrollTo }) => (
-          <li><a onClick={() => scrollTo({ x: 0, y: 500 })}>Fitur</a></li>
+          <li><a onClick={() => scrollTo({ x: 0, y: 1000 })}>Fitur</a></li>
         )}
     </ScrollTo>
 
       <ScrollTo>
         {({ scrollTo }) => (
-          <li><a onClick={() => scrollTo({ x: 0, y: 1300 })}>Desain</a></li>
+          <li><a onClick={() => scrollTo({ x: 0, y: 2150 })}>Desain</a></li>
         )}
     </ScrollTo>
     <ScrollTo>
             {({ scrollTo }) => (
 
-            <li><a onClick={() => scrollTo({ x: 0, y: 1800 })}>Paket Harga</a></li>
+            <li><a onClick={() => scrollTo({ x: 0, y: 2800 })}>Paket Harga</a></li>
             )}
     </ScrollTo>
 
     <ScrollTo>
             {({ scrollTo }) => (
 
-            <li><a onClick={() => scrollTo({ x: 0, y: 2000 })}>Contact</a></li>
+            <li><a onClick={() => scrollTo({ x: 0, y: 3500 })}>Contact</a></li>
             )}
     </ScrollTo>    
                 </ul>
-
-                <ul id="nav-mobile" class="sidenav">
+                {/* <ul id="nav-mobile" class="sidenav" style={{transform: this.props.drawerOpen}}>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Fitur</a></li>
                     <li><a href="#">Desain</a></li>
                     <li><a href="#">Paket Harga</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="#" onClick={this.props.openDrawer} data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> */}
                 </div>
             </nav>
         );

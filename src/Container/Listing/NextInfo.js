@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Navigation,Footer,Banner } from '../../Components/Molecules';
 import { connect } from 'react-redux';
+import LoadingOverlay from 'react-loading-overlay';
+import BounceLoader from 'react-spinners/BounceLoader';
 
 class NextInfo extends Component {
-
+    
     back = (e) => {
         const {dispatch}=this.props;
         e.preventDefault()
@@ -11,56 +13,64 @@ class NextInfo extends Component {
     }
 
     render() {
-        const { values, handleChange,submit,handleFileChosen } = this.props;
-
+        const { values, handleChange,submit,handleFileChosen,loader } = this.props;
         console.log("lohhh",values)
         return (
-            <div>
-            <div class="section">
+            <LoadingOverlay
+            active={loader}
+            spinner
+            text='Loading your content...'
+            >
+            <div class="">
                  <div class="container">
                  <i class="small material-icons" onClick={this.back}>arrow_back</i>
 
                  <p>
-                    <h4>Create Invitation</h4>
-                    Select one of our 100+ new designs to start your wedding website. Try it out – you can change it at any time.
-
-
+                    <h3>Step - Terakhir</h3>
+                    Isikan data yang diperlukan di bawah ini.
                 </p>
                     <div class="row">
                     </div>
                     <div class="row" >
-                        <div class="col s12 m7 ">
+                        <div class="col s12 m5 ">
                             <div class="icon-block">
-                                <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
+                            <img src={"http://localhost:3000/template/"+values.templateId.value+".png"} style={{width:`100%`}} />
                             </div>
                         </div>
-                        <div class="col s12 m5 bg-color">
+                        <div class="col s12 m7 bg-color">
                             <div class="input-field col s12">
                                 <textarea id="quotes" class="materialize-textarea"  value={values.ourStory1.value} onChange={handleChange('ourStory1')}></textarea>
-                                <label for="quotes">Quotes</label>
+                                <label for="quotes" class={values.ourStory1.value ? 'active' : ''}>Quotes</label>
                             </div>
                             <div class="input-field col s12">
                                 <textarea id="story" class="materialize-textarea"  value={values.ourStory2.value} onChange={handleChange('ourStory2')}></textarea>
-                                <label for="story">Groom/Bride Story</label>
+                                <label for="story" class={values.ourStory2.value ? 'active' : ''}>Groom/Bride Story</label>
                             </div>
-                            <div class="input-field col s12">
-                            <div class="file-field input-field">
-                                <div class="btn">
-                                    <span>File</span>
-                                    <input type="file" name="file" accept=".png" onChange={e=>handleFileChosen(e.target.files[0])}/>
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text"/>
-                                </div>
+                            <div class="input-field col s12" style={{height:`300px`}}>
+                                <div class="file-field input-field">
+                                    <div class="btn col s3">
+                                        <span>Upload Picture</span>
+                                        <input type="file" name="headerPicture" accept=".png" onChange={e=>handleFileChosen(e.target.files[0])}/>
+                                    </div>
+                                   
+                                    <div class="file-path-wrapper">
+                                        <div class="file-image">
+                                            <img class="image" src={values.headerPicture.value}/>
+                                        </div>
+                                    </div>
+                                     
                                 </div>
                             </div>
-                            <a class="waves-effect main-color btn u-wid-100" onClick={()=>submit()}>Submit</a>
+                          
+                            <div class="input-field col s12">    
+                                <a class="waves-effect main-color btn u-wid-100" onClick={()=>submit()}>Submit</a>
+                            </div>
                         </div>
                     </div>
                  </div>
             </div>
             <Footer/>
-            </div>
+            </LoadingOverlay>
         );
     }
 }

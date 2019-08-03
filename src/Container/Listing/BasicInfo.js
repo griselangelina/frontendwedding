@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navigation,Footer,Banner } from '../../Components/Molecules';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import queryString from 'query-string';
 
 class BasicInfo extends Component {
 
@@ -9,12 +10,15 @@ class BasicInfo extends Component {
     saveAndContinue = (value) => {
         //check email sudah terpakai atau belum
         const {dispatch}=this.props;
-        axios.get(`/api/bridegroom/email/${value}`).then( 
-            (response) => { 
-                response.data === 0 ? dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'}) : alert
-                //console.log("resp",response)
-            },
-        );
+         //get code from redux
+        if(!true ){
+            axios.get(`/api/bridegroom/email/${value}`).then( 
+                (response) => { 
+                    response.data === 0 ? dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'}) : alert('same')
+                    //console.log("resp",response)
+                },
+            );
+        }else dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'})
        // e.preventDefault()
         //dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'})
     }
@@ -25,39 +29,38 @@ class BasicInfo extends Component {
     }
 
     render() {
-        const { values, handleChange } = this.props;
+        const { values, handleChange, btnStatus } = this.props;
 
         return (
             <div>
-            
-            <div class="section">
+            <div class="">
             
                  <div class="container">
                     <p><i class="small material-icons" onClick={this.back}>arrow_back</i></p>
                     <p>
-                        <h4>Create Invitation</h4>
-                        Select one of our 100+ new designs to start your wedding website. Try it out – you can change it at any time.
+                        <h3>Step - 1</h3>
+                        Isikan data yang diperlukan di bawah ini
                     </p>
                     <div class="row">
                     </div>
                     <div class="row" >
-                        <div class="col s12 m7 ">
+                        <div class="col s12 m5 ">
                             <div class="icon-block">
-                                <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
+                                <img src={"http://localhost:3000/template/"+values.templateId.value+".png"} style={{width:`100%`}} />
                             </div>
                         </div>
-                        <div class="col s12 m5 bg-color">
+                        <div class="col s12 m7 bg-color">
                             <div class="input-field col s12">
                                 <input id="url_name" type="text" class="validate" value={values.name.value} onChange={handleChange('name')}/>
-                                <label for="url_name">URL Name *</label>
+                                <label for="url_name" className={values.name.value ? 'active' : ''}>URL Name *</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="bride_groom_email" type="text" class="validate" value={values.email.value} onChange={handleChange('email')}/>
-                                <label for="bride_groom_email">Bride/Groom Email *</label>
+                                <input id="bride_groom_email" type="text" class="validate" disabled={btnStatus === "edit"? true:false} value={values.email.value} onChange={handleChange('email')}/>
+                                <label for="bride_groom_email" className={values.email.value ? 'active' : ''}>Bride/Groom Email *</label>
                             </div>
                             <div class="input-field col s12">
                                 <input id="bride_groom_phone" type="text" class="validate" value={values.phone.value} onChange={handleChange('phone')}/>
-                                <label for="bride_groom_phone">Bride/Groom Phone *</label>
+                                <label for="bride_groom_phone" className={values.phone.value ? 'active' : ''}>Bride/Groom Phone *</label>
                             </div>
                             <div class="input-field col s12">
                             <a class="waves-effect main-color btn u-wid-100" onClick={()=>this.saveAndContinue(values.email.value)}>continue</a>
@@ -67,8 +70,7 @@ class BasicInfo extends Component {
                  </div>
             </div>
             <Footer/>
-            </div>
-
+           </div>
         );
     }
 }
@@ -82,4 +84,5 @@ const mapStateToProps = state => {
         step: state.listing.step,   
     }
 }
+
 export default connect(mapStateToProps)(BasicInfo);

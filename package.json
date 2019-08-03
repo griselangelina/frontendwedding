@@ -1,6 +1,6 @@
 {
   "name": "weddingfront",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -39,11 +39,14 @@
     "react-datepicker": "^2.6.0",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.2",
+    "react-loader-spinner": "^2.3.0",
+    "react-loading-overlay": "^1.0.1",
     "react-notifications": "^1.4.3",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-scroll-to": "^2.0.9",
     "react-scroll-to-component": "^1.0.2",
+    "react-spinners": "^0.5.8",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -62,7 +65,7 @@
     "deploy": "aws s3 sync build/ s3://www.turizter.com",
     "test": "node scripts/test.js"
   },
-  "proxy": "http://54.169.246.34:8080",
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": "react-app"
   },

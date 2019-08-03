@@ -1,6 +1,8 @@
 .bg-grad{background-image:$grad-linear;}
-.bg-grad-180{background-image:$grad-linear-180;}
+.bg-grad-pink-180{background-image:$grad-linear-pink;}
+.bg-grad-blue-180{background-image:$grad-linear-blue;}
 .bg-grey{background-color:$grey-10;}
+.bg-grey-30{background-color:$grey-30;}
 
 @each $bg, $value in $bgimages {
     .u-bg-img-#{$bg} {

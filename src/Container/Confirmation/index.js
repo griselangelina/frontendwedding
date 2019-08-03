@@ -35,7 +35,7 @@ class index extends Component {
 
     render() {
         console.log(this.props.bridegroom)
-		const{id,name,brideName,email,whenDate,whenTime,loc1,ourStory1,ourStory2} =this.props.bridegroom
+		const{id,name,brideName,email,whenDate,whenTime,loc1,ourStory1,ourStory2,templateId} =this.props.bridegroom
         return (
             <div>
             
@@ -48,7 +48,7 @@ class index extends Component {
                     </div>
                     <div class="row  icon-block" >
                         <div class="col s12 m5 center ">
-                                <img src="https://media-api.xogrp.com/images/28d62a38-3e7d-41e8-b389-6d9d34b82190~rs_483.h" style={{width:`100%`}} />
+                                <img src={"http://localhost:3000/template/"+templateId+".png"} style={{width:`100%`}} />
                         </div>
                         <div class="col s12 m6 bg-color">
 							<p class="row u-mb-8">
@@ -85,9 +85,8 @@ class index extends Component {
 							</p>             
 
                             <div class=" left u-mt-36 ">
-                                <Link to={`/create/${this.props.match.params.bridegroomcd}`}  class="waves-effect main-color btn" >Edit</Link>
+                                <Link to={`/create?done=${this.props.match.params.bridegroomcd}`}  class="waves-effect main-color btn" >Edit</Link>
                                 <Link to={`/`}  class="waves-effect  btn  u-ml-32" >Back to Home</Link>
-
                             </div>
                         </div>
                     </div>
