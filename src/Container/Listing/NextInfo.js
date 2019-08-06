@@ -34,7 +34,7 @@ class NextInfo extends Component {
                     <div class="row" >
                         <div class="col s12 m5 ">
                             <div class="icon-block">
-                            <img src={"http://localhost:3000/template/"+values.templateId.value+".png"} style={{width:`100%`}} />
+                            <img src={"/template/"+values.templateId.value+".png"} style={{width:`100%`}} />
                             </div>
                         </div>
                         <div class="col s12 m7 bg-color">

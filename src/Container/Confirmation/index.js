@@ -48,7 +48,7 @@ class index extends Component {
                     </div>
                     <div class="row  icon-block" >
                         <div class="col s12 m5 center ">
-                                <img src={"http://localhost:3000/template/"+templateId+".png"} style={{width:`100%`}} />
+                                <img src={"/template/"+templateId+".png"} style={{width:`100%`}} />
                         </div>
                         <div class="col s12 m6 bg-color">
 							<p class="row u-mb-8">

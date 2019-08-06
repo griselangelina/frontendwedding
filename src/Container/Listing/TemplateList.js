@@ -50,7 +50,7 @@ class TemplateList extends Component {
                         <div class="col s12 m6 u-margin-top">
                             <div class="icon-block">
                                 <a onClick={()=>this.saveAndContinue(val.id)} href="#">
-                                    <img src={"http://localhost:3000/template/"+val.id+".png"} style={{width:`100%`}} />
+                                    <img src={"/template/"+val.id+".png"} style={{width:`100%`}} />
                                 </a>
                             </div>
                         </div>
