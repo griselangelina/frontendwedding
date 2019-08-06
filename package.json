@@ -65,7 +65,7 @@
     "deploy": "aws s3 sync build/ s3://www.turizter.com",
     "test": "node scripts/test.js"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://54.169.246.34:8080",
   "eslintConfig": {
     "extends": "react-app"
   },
