@@ -12,3 +12,16 @@
 	  background-color: #{$value};
     }
   }
+
+  .btn-upload{
+	padding: 5px;
+	text-align: center;
+	background-color: $black-40;
+	color:white;
+	width:40%;
+	border-radius: 5px;
+	}
+	
+	.arrow-btn{
+		cursor: pointer;
+	}

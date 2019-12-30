@@ -1,0 +1,24 @@
+.login-body{ 
+    padding-top:100px;
+    padding-bottom:50px;
+    margin: 0 10px;
+}
+
+.test-layer{
+    margin-top:80px;
+
+    .layer-left{
+        display: inline-block;
+
+        .menu{
+            p{
+                display:inline-block;
+            }
+        }
+    }
+
+    .layer-right{
+        display: inline-block;
+        float:right;
+    }
+}

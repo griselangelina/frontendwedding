@@ -14,7 +14,7 @@ class Banner extends Component {
               <div class="row">
 
               <div class="col s12 m5">
-                <div style={{width:`60%`}}>
+                <div>
                   <h1 class="header">DatenginAja</h1>
                   <div class="row ">
                     <h5 class="header-2 col s12 light white-color">Buat Momen Pernikahan Anda Berkesan dengan Custumize Undangan </h5>
@@ -24,7 +24,7 @@ class Banner extends Component {
                   </div>
                 </div>
               </div>
-              <div class="col m7" style={{left:`50%`}}>
+              <div class="col s12 m7" style={{left:`50%`}}>
                 <img src={header} width="100%" />
               </div>
               </div>

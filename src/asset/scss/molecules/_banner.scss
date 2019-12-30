@@ -9,6 +9,8 @@
    .section{
    width: 100%;
    }
+   padding-top: 58px;
+   margin-bottom:-40px;
  }
  
  .header{
@@ -22,13 +24,19 @@
 	}
  }
  
- @media only screen and (max-width : 992px) {
-   .parallax-container .section {
-     position: absolute;
-     top: 40%;
-   }
+ @media only screen and (max-width : 850px) {
    #index-banner .section {
      top: 10%;
+     background-image:linear-gradient(to right, #f9a1a9, #e077ae);
+
+     img{
+      display:none;
+    }
    }
+
+   .header-2{
+     width:100%;
+   }
+   
  }
  

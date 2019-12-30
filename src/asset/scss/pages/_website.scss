@@ -3,10 +3,11 @@ nav{
     z-index:2;
 }
 .section{
-    padding-top:50px;
     padding-bottom:50px;
 }
-
+.section-title{
+    padding-top:64px;
+}
 /* theme header part */
 .theme-header-bg17{
     color: $grey-20;
@@ -84,8 +85,9 @@ nav{
 }
 
 /* quote-section */
-.quote-section-bg18{
-
+.quote-section{
+    font-size: 35px;
+    text-align: center;
 }
 .detail-section-bg18{
     width: 350px;
@@ -136,4 +138,11 @@ nav{
         transition: opacity 1s ease-in;
         opacity: 1;
     }
+}
+
+@media only screen and (max-width : 850px) {
+   .quote-section{
+        font-size: 25px;
+   }
+    
 }

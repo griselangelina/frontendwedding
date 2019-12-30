@@ -27,7 +27,7 @@ class TemplateList extends Component {
             <div>
                 <Navigation />
                
-                <div class="section" >
+                <div class="section-title" >
                     <div class="container">
                         <p>
                             <h2>Pilih Desain</h2>

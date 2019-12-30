@@ -19,11 +19,11 @@ class NextInfo extends Component {
             <LoadingOverlay
             active={loader}
             spinner
-            text='Loading your content...'
+            text='Wedding websitemu sedang di submit. Silahkan tunggu sebentar ...'
             >
             <div class="">
                  <div class="container">
-                 <i class="small material-icons" onClick={this.back}>arrow_back</i>
+                 <i class="small material-icons arrow-btn" onClick={this.back}>arrow_back</i>
 
                  <p>
                     <h3>Step - Terakhir</h3>
@@ -46,9 +46,9 @@ class NextInfo extends Component {
                                 <textarea id="story" class="materialize-textarea"  value={values.ourStory2.value} onChange={handleChange('ourStory2')}></textarea>
                                 <label for="story" class={values.ourStory2.value ? 'active' : ''}>Groom/Bride Story</label>
                             </div>
-                            <div class="input-field col s12" style={{height:`300px`}}>
+                            <div class="input-field col s12">
                                 <div class="file-field input-field">
-                                    <div class="btn col s3">
+                                    <div class="btn-upload main-color">
                                         <span>Upload Picture</span>
                                         <input type="file" name="headerPicture" accept=".png" onChange={e=>handleFileChosen(e.target.files[0])}/>
                                     </div>
@@ -63,7 +63,8 @@ class NextInfo extends Component {
                             </div>
                           
                             <div class="input-field col s12">    
-                                <a class="waves-effect main-color btn u-wid-100" onClick={()=>submit()}>Submit</a>
+                                <a class="waves-effect main-color btn u-wid-100 u-mr-12" onClick={this.back}>back</a>
+                                <a class="waves-effect main-color btn u-wd-100 u-mr-12" onClick={()=>submit()}>Submit</a>
                             </div>
                         </div>
                     </div>

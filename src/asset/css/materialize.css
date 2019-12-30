@@ -3718,7 +3718,7 @@ table span.badge {
   left: 100%;
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 850px) {
   .row .col.m1 {
     width: 8.3333333333%;
     margin-left: auto;

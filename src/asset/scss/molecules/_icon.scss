@@ -1,7 +1,6 @@
  .icon-block {
    padding: 0 15px;
    display: block;
-   min-height:350px;
 	position: relative;
 	margin-bottom: .75rem;
 	border-radius: 2px;
@@ -19,6 +18,8 @@
 	-moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	-o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	box-sizing: border-box;
+
 	.icon-title{
 		display:flex;
 		align-items:center;
@@ -28,7 +29,7 @@
 		.icon-div{
 			width: 75px;
 			height: 75px;
-			background-color: $pink-30;
+			background:$grad-linear;
 			border-radius: 50%;
 			display: flex;
 			justify-content: center;

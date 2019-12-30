@@ -12,6 +12,8 @@ import NextInfo from './NextInfo';
 import axios from 'axios';
 import * as Validator from '../../helper/Validator';
 import queryString from 'query-string';
+import UserService from '../../Service/UserService';
+import BrideGroomService from '../../Service/BrideGroomService';
 
 class index extends Component {
 
@@ -25,7 +27,7 @@ class index extends Component {
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'name'
+					label: 'Name'
 				},
                 brideName: {
 					value: '',
@@ -34,7 +36,7 @@ class index extends Component {
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'brideName'
+					label: 'Bride Name'
 				},
                 groomName: {
 					value: '',
@@ -43,7 +45,7 @@ class index extends Component {
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'groomName'
+					label: 'Groom Name'
 				},
                 email: {
 					value: '',
@@ -53,7 +55,7 @@ class index extends Component {
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'email'
+					label: 'Email'
 				},
                 phone: {
 					value: '',
@@ -63,25 +65,26 @@ class index extends Component {
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'phone'
+					label: 'Phone'
 				},
                 whenDate: {
 					value: '',
 					validation: {
 						required: true,
+						largeThan:true
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'whenDate'
+					label: 'Wedding Date'
 				},
                 whenTime: {
 					value: '',
 					validation: {
-						required: true,
+						required: true
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'whenTime'
+					label: 'Wedding Time'
 				},
                 loc1: {
 					value: '',
@@ -90,7 +93,7 @@ class index extends Component {
 					},
 					isError: false,
 					errorMessage: '',
-					label: 'loc1'
+					label: 'Venue'
 				},
                 ourStory1: {
 					value: '',
@@ -134,10 +137,8 @@ class index extends Component {
         componentDidMount(){
 			const { dispatch } = this.props;
 
-
 			const values = queryString.parse(this.props.location.search)
 			
-			console.log("valuesssdas",values.done)
 			let form = Object.assign({}, this.state.form);
             if(values.done ){
 				//dont use bridegroom props but use axios to get data first using reducer 
@@ -153,6 +154,7 @@ class index extends Component {
 						}
 						this.setState({ ...this.state,form: form}, console.log("formmmmmmmm ",this.state.form));
 						this.setState({btnStatus:"edit"})
+						dispatch({type:'COMPOSE_NEXT',step:'BASIC_INFO'})
 					},
 				);
             }
@@ -186,6 +188,21 @@ class index extends Component {
 		return error ? false : true;
 	}
 
+	setErrorMessage = (name, errorMessage) => {
+		const formData = {
+			...this.state.form
+		}
+
+		//set data validation
+		formData[name].isError = false;
+		formData[name].errorMessage = errorMessage;
+		this.setState({
+			formData
+		});
+
+		return false;
+	}
+
 	handleFileChosen =(e)=> {
         let form = Object.assign({}, this.state.form);
         let files = e;
@@ -207,12 +224,12 @@ class index extends Component {
 		//const {validation,value,label}=urlName
 		const values = queryString.parse(this.props.location.search)
 
-		this.setState({loader:true})
 		 let reValidate = Object.entries(this.state.form).map(([p,q]) => {
              return this.checkValidation(p, q.value)
              
 		 })
-		 if(reValidate.indexOf('false')== -1){
+		 if(reValidate.indexOf('false')=== -1){
+			 alert("dasdsadsad")
 			let formSubmit={
 				"templateId":templateId.value,
 				"phone":phone.value,
@@ -225,11 +242,13 @@ class index extends Component {
 				"whenTime": whenTime.value,
 				"whenDate": whenDate.value,
                 "loc1": loc1.value,
-                "headerPicture":headerPicture.value
+				"headerPicture":headerPicture.value,
+				"accountId": UserService.getCurrentAccId,
             }
 			
+			this.setState({loader:true})
 			if(this.state.btnStatus==="save"){
-				axios.post('/api/bridegroom/save',formSubmit).then( 
+				BrideGroomService.submit(formSubmit).then( 
 						(response) => { 
 							//return <Redirect to={"/confirm/" + response.data.brideGroomCd} /> //nanti ganti with /confirm/kodecd
 							this.props.history.push("/confirm/" + response.data.brideGroomCd)
@@ -270,8 +289,6 @@ class index extends Component {
         const { name, brideName, groomName, phone, email, whenDate,whenTime,loc1,ourStory2,ourStory1,templateId,headerPicture } = this.state.form;
         const values = { name, brideName, groomName, phone, email, whenDate,whenTime,loc1,ourStory2,ourStory1,templateId,headerPicture };
 
-		console.log("this.state.form",this.state.form)
-
             switch(this.props.step) {
                 case "TEMPLATE_LIST":
                     return <TemplateList 
@@ -287,6 +304,8 @@ class index extends Component {
                     handleChange={this.handleChange}
 					values={values}
 					btnStatus={btnStatus}
+					checkValidation={this.checkValidation}
+					setErrorMessage={this.setErrorMessage}
                  />
 
                 case "MESSAGE_INFO_NEXT":
@@ -295,6 +314,7 @@ class index extends Component {
 					prevStep={this.prevStep}
 					handleChange={this.handleChange}
 					values={values}
+					checkValidation={this.checkValidation}
                  />
 
                  case "BASIC_INFO_NEXT":

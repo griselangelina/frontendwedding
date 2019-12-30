@@ -1,0 +1,47 @@
+.card{
+    position: relative;
+    padding:20px;
+    width:100%;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.1);
+
+    &.card-desktop{
+        max-width: 385px;
+    }
+
+    .title{
+        font-weight: bold;
+        padding:10px 0;
+    }
+    
+    .form-group{
+        .form-control{
+            max-height:40px;
+        }
+
+        .forgot-password{
+            color: #0064d2!important;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .register-section{
+            font-size: 12px;
+            text-align: center;
+            background-color: #eee;
+            padding: 5px 0;
+            border-radius: 3px;
+        }
+
+        button{
+            margin-top:20px;
+            width: 100%;
+        }
+
+        hr{
+            margin:30px 0;
+            max-width: 200px;
+        }
+    }
+}

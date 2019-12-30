@@ -1,0 +1,97 @@
+.step-info-nocontainer{
+    width:100%;
+    height:500px;
+    padding-bottom: 50px;
+    
+    .step-info-image{
+    background-image: url("img/picquote.png");
+    display: block;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-size: cover;
+    width: 100%;
+    height:100%;
+    opacity:0.5;
+    position:relative;
+        .step-info-text{
+            position:absolute;
+            z-index: 99999;
+            color:black;
+            font-weight: 400;
+            font-size:40px;
+        }
+    }
+    
+}
+ 
+.step-info-container{
+    position: relative;
+    z-index:1;
+    margin-bottom:50px;
+    
+    .step-info-feature{
+        background-color:white;
+        padding: 20px 10px 20px 10px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 10px 20px 0 rgba(53,64,90,.2);
+        box-shadow: 0 10px 20px 0 rgba(53,64,90,.2);
+    }
+}
+
+.feature-list-container{
+    padding: 20px 0;
+}
+
+.product-price-container{
+    padding: 20px 0 0 0;
+
+    .product-list{
+        margin-bottom: 50px;
+        .container{
+            border-bottom: 2px solid #ddd;
+        }
+    }
+    .price-list{
+        margin-top: 20px;
+        padding-bottom:50px;
+        background: linear-gradient(to bottom,#ffff, #e8ced2); 
+        .row{
+            margin-bottom: 0;
+        }
+    }
+}
+
+.page-footer{
+    background-color:$pink-30;
+}
+
+/* Validation Sass Placeholders */
+input.valid:not([type]), input.valid:not([type]):focus,
+input[type=text].valid:not(.browser-default),
+input[type=text].valid:not(.browser-default):focus,
+input[type=password].valid:not(.browser-default),
+input[type=password].valid:not(.browser-default):focus,
+input[type=email].valid:not(.browser-default),
+input[type=email].valid:not(.browser-default):focus,
+input[type=url].valid:not(.browser-default),
+input[type=url].valid:not(.browser-default):focus,
+input[type=time].valid:not(.browser-default),
+input[type=time].valid:not(.browser-default):focus,
+input[type=date].valid:not(.browser-default),
+input[type=date].valid:not(.browser-default):focus,
+input[type=datetime].valid:not(.browser-default),
+input[type=datetime].valid:not(.browser-default):focus,
+input[type=datetime-local].valid:not(.browser-default),
+input[type=datetime-local].valid:not(.browser-default):focus,
+input[type=tel].valid:not(.browser-default),
+input[type=tel].valid:not(.browser-default):focus,
+input[type=number].valid:not(.browser-default),
+input[type=number].valid:not(.browser-default):focus,
+input[type=search].valid:not(.browser-default),
+input[type=search].valid:not(.browser-default):focus,
+textarea.materialize-textarea.valid,
+textarea.materialize-textarea.valid:focus, .select-wrapper.valid > input.select-dropdown {
+  border-bottom: 1px solid red;
+  -webkit-box-shadow: 0 1px 0 0 red;
+          box-shadow: 0 1px 0 0 red;
+}

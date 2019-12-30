@@ -8,7 +8,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <footer class="page-footer bg-grad">
+            <footer class="page-footer">
             <div class="container">
               <div class="row">
                 <div class="col l6 s12">

@@ -25,7 +25,7 @@ $grey-30 : #877f54;
 $black-10 : #636b6f;
 $black-20 : #EFF3F6;
 $black-30 : #DCDEE3;
-$black-40 : #9C9DA6;
+$black-40 : #bec0cb;
 $black-50 : #70727D;
 $black-60 : #434755;
 $black-70 : #636b6f;
@@ -233,7 +233,7 @@ $w-60: 60%;
 $w-40:40%;
 $w-20:20%;
 
-$grad-linear: gradient(to right,$pink-10, $purple-10);
+$grad-linear: linear-gradient(to right,$pink-10, $purple-10);
 $grad-linear-pink: linear-gradient(to right,$pink-10, $purple-10);
 $grad-linear-blue: linear-gradient(to right,$blue-10, $blue-20);
 

@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import { Navigation,Footer,Banner } from '../../Components/Molecules';
-import Title from '../../Components/Atom/Title';
+import FeatureList from '../../Components/Molecules/Home/FeatureList';
 import ListingProduct from '../../Components/Molecules/Home/ListingProduct';
 import StepInfo from '../../Components/Molecules/Home/StepInfo';
-import axios from 'axios';
+import Modal from '../../Components/Molecules/Modal';
+import Login from '../../Components/Page/Login';
+import UserService from '../../Service/UserService';
+import Edit from '../../Components/Page/EditBrideGroom';
+import EditBrideGroom from '../../Components/Page/EditBrideGroom';
 
 class index extends Component {
   state = {
     template: [],
     drawerOpen : 'translateX(-100%)',
+    showModalLogin: false,
+    showModalEdit: false,
   }
   handlerOpenDrawer () {
     this.setState({drawerOpen:'translateX(0%)'})
@@ -22,94 +30,73 @@ class index extends Component {
       console.log("res",res.data)
     })
   }
+
+  handleCreate(){
+    
+    if(UserService.currentUserValue){
+     window.location.href='/create';
+    }else{
+      this.setState({showModalLogin:true});
+    }
+  }
+
+  handleEdit(){
+    const {showModalEdit}=this.state;
+    
+    this.setState({showModalEdit:!showModalEdit});
+  }
+  
     render() {
+      console.log("state",this.state);
+        const { showModalLogin,showModalEdit } = this.state;
         return (
             <div>
-                
-                  <Navigation drawerOpen={this.state.drawerOpen}
-                  openDrawer={this.handlerOpenDrawer.bind(this)}
-                  closeDrawer={this.handlerCloseDrawer.bind(this)}
-                  />
-                <div onClick={this.handlerCloseDrawer.bind(this)}>
-                  <Banner />
-                
+              <Navigation drawerOpen={this.state.drawerOpen}
+                openDrawer={this.handlerOpenDrawer.bind(this)}
+                closeDrawer={this.handlerCloseDrawer.bind(this)}
+                homepage
+                editToggle={this.handleEdit.bind(this)}
+                user={UserService.currentUserValue}
+              />
+              <div onClick={this.handlerCloseDrawer.bind(this)}>
+                <Banner />
+
                 <StepInfo bg="bg-white" title="Buat Gratis Wedding Website-Mu" text="Dengan UndangKamu.com Anda dapat membuat wedding website digital gratis hanya dengan mengisi data 
                 sesuai dengan yang anda ingin infokan dan voilaaa undangan digital mu lansung dapat di akses."
-                isBtn="y"
-                isContainer="y"
-                />
+                isBtn="y" isContainer="y" handleCreate={this.handleCreate.bind(this)} />
 
-                <div class="container">
+                <FeatureList />
 
-                <div class="section">
-                  <Title>
-                        <h2>FITUR</h2>
-                        <span>Yang Kami Berikan Spesial Untuk Anda</span>
-                    </Title>
-                  <div class="row u-margin-bottom u-padding-bottom ">
-                    <div class="col s12 m4 ">
-                      <div class="icon-block">
-                        <h2 class="icon-title u-fw-bold">
-                          <div class="icon-div">
-                            <i class="material-icons">info</i>
+                <div class="step-info-nocontainer">
+                  <span class="step-info-image">
+                    <p class="step-info-text">
+                      <div class="container">
+                        <div class="row" >
+                          <div class="col s12 m8 u-margin-top u-p-32 u-tx-d1 ">
+                              <p class="quote-section">Get your guest list with our guestbook feature</p>
                           </div>
-                         
-                        </h2>
-                        <h5 class="center u-fw-bold">Wedding Info</h5>
-
-                        <p >Dengan wedding website anda dapat mencantumkan informasi detail mengenai acara dari tanggal pelaksanaan hingga tempat pelaksanaan, Anda juga dapat menulis couple story untuk dibagikan ke para tamu udnangan.</p>
-                      </div>
-                    </div>
-
-                    <div class="col s12 m4 ">
-                      <div class="icon-block">
-                        <h2 class="icon-title u-fw-bold">
-                          <div class="icon-div">
-                            <i class="material-icons">insert_invitation</i>
-                          </div>
-                        </h2>
-                        <h5 class="center u-fw-bold">RSVP</h5>
-
-                        <p >Anda dapat mendapatkan informasi mengenai ketersediaan tamu anda untuk hadir beserta wedding wishes dari mereka.</p>
-                      </div>
-                    </div>
-
-                    <div class="col s12 m4">
-                      <div class="icon-block">
-                        <h2 class="icon-title u-fw-bold">
-                          <div class="icon-div">
-                            <i class="material-icons">settings</i>
-                          </div>
-                        </h2>
-                        <h5 class="center u-fw-bold ">Costumize Template</h5>
-
-                        <p >We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-              </div>
-              <div class="step-info-container">
-                <span class="step-info-image">
-                  <p class="step-info-text">
-                    <div class="container">
-                      <div class="row" >
-                        <div class="col s12 m8 u-margin-top u-p-32 u-tx-d1">
-                            Get your guest list with our guestbook feature
                         </div>
                       </div>
-                    </div>
-                  </p>
-                </span>
-              </div>
+                    </p>
+                  </span>
+                </div>
 
-                  <ListingProduct/>
-
+                <ListingProduct/>
                 
-
-
                 <Footer />
-                </div> 
+              </div> 
+              {
+                showModalLogin &&
+                <div className="modal">
+                  <Login popup/>
+                </div>
+              }
+              {
+                showModalEdit &&
+                  <Modal handleCancel={this.handleEdit.bind(this)}>
+                    <EditBrideGroom/>
+                  </Modal>
+              }
             </div>
 
         );

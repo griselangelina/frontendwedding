@@ -8,6 +8,7 @@ import * as Validator from '../../helper/Validator';
 import { confirmAction } from './_Action/confirmAction';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import BrideGroomService from '../../Service/BrideGroomService';
 
 class index extends Component {
 
@@ -16,7 +17,7 @@ class index extends Component {
 		const { dispatch } = this.props;
         let bridegroomcd=this.props.match.params.bridegroomcd
 		console.log("param",this.props.match.params.bridegroomcd)
-		axios.get(`/api/bridegroom/${bridegroomcd}`).then( 
+		BrideGroomService.confirm(bridegroomcd).then( 
             (response) => {
 				dispatch(confirmAction.saveData(response.data)) 
             },
@@ -25,6 +26,7 @@ class index extends Component {
     saveAndContinue = (value) => {
         let bridegroomcd=this.props.match.params.bridegroomcd
 
+        
 		this.props.history.push("/create?done="+bridegroomcd);
     }
     back = (e) => {

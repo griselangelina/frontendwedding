@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 let globalForm = {};
 
 const patternEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -17,12 +19,10 @@ export const ValidateData = (name, value, form) => {
     let label = form[name].label ? form[name].label : name.toUpperCase();
 
     const entries = Object.entries(form[name].validation);
-    console.log("entries",value)
     const validatorList = new ValdiatorList();
     for (const [validationName, validationValue] of entries) {
         if (typeof validatorList[validationName] === 'function' && validationValue) {
             error = validatorList[validationName](label, value, validationValue);
-            console.log("goo",error)
         }
         if (error.length !== 0) break;
     }
@@ -69,6 +69,20 @@ export class ValdiatorList {
         let error = '';
         if (value === '') {
             error = label + ' harus diisi';
+        }
+        return error;
+    }
+
+    largeThan = (label, value, rule) => {
+        let error = '';
+        let dateNow = moment(new Date(), "YYYY-MM-DD");
+
+        let date  = moment(value, "YYYY-MM-DD");
+
+        console.log("now... ",dateNow)
+        console.log("value",date.diff(dateNow,'days'))
+        if (date.diff(dateNow,'days')<=-1) {
+            error ='Date must be larger than today';
         }
         return error;
     }
