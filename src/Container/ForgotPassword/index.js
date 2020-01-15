@@ -72,7 +72,7 @@ back = (e) => {
         <div>
         <Navigation />
         <div className="login-body">
-        <p><i class="small material-icons arrow-btn" onClick={this.back}>arrow_back</i></p>
+        <div className="back-section"><a><i class="small material-icons arrow-btn" onClick={this.back}>arrow_back</i></a></div>
 
         <div className={isMobile ? 'card': 'card card-desktop'}>
             {errorMessage &&

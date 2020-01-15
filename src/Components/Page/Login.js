@@ -68,7 +68,7 @@ class Login extends Component {
 
         return (
     <div className="login-body">
-        <p><i class="small material-icons arrow-btn" onClick={back}>arrow_back</i></p>
+        <div className="back-section"><a><i class="small material-icons arrow-btn" onClick={back}>arrow_back</i></a></div>
 
         <div className={isMobile ? 'card': 'card card-desktop'}>
             {errorMessage &&

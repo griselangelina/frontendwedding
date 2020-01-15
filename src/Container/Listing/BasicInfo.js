@@ -27,7 +27,7 @@ class BasicInfo extends Component {
             if(btnStatus !== "edit"){
                 BrideGroomService.checkName(value).then( 
                     (response) => { 
-                        response.data === 0 ? dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'}) : setErrorMessage("email","email sudah terpakai")
+                        response.data === 0 ? dispatch({type:'COMPOSE_NEXT',step:'MESSAGE_INFO_NEXT'}) : setErrorMessage("name","URL Name sudah terpakai")
                         //console.log("resp",response)
                     },
                 );
